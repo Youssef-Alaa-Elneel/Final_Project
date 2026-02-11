@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Rabta Chat Desktop</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5a7763",
+                        "sidebar-bg": "#90AB8B",
+                        "chat-bg": "#EBF4DD",
+                        "incoming-text": "#3B4953",
+                        "background-light": "#f7f7f7",
+                        "background-dark": "#181a18",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .sidebar-scroll::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display h-screen flex overflow-hidden">
+    <aside class="w-[320px] bg-sidebar-bg flex flex-col h-full border-r border-black/5">
+        <div class="p-4 flex flex-col gap-4">
+            <div class="flex items-center justify-between text-white">
+                <span class="text-xl font-bold tracking-tight">Rabta</span>
+                <button class="p-1 hover:bg-white/10 rounded-full transition-colors">
+                    <span class="material-icons">menu</span>
+                </button>
+            </div>
+            <div class="relative group">
+                <span
+                    class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-white/70 text-sm">search</span>
+                <input
+                    class="w-full bg-white/20 border-none rounded-lg py-2 pl-10 pr-4 text-white placeholder-white/70 focus:ring-2 focus:ring-white/30 focus:bg-white/25 transition-all text-sm"
+                    placeholder="Search" type="text" />
+            </div>
+        </div>
+        <div class="flex-1 overflow-y-auto sidebar-scroll">
+            <div class="flex items-center gap-3 px-4 py-3 bg-white/15 cursor-pointer">
+                <div class="relative">
+                    <img class="w-12 h-12 rounded-full object-cover" data-alt="Portrait of a developer man avatar"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW6ItkwKUr4KlBQ51P-gCFRC6MxWH41ny06iQ2LtV9FoQRsSo-pKrce9CPwQrQiivOzrMecOrLybR1kH-xp40FVxZ9CrusaE6oJZq37YUIoDFgUGIrlyA0DeQWOCUXHyWkiWDT2Iag-9WcyTkL6__d64juO7NigKCiN0n8UoJoEqC-dd7-IUigCxsfMGAI7emL13gJeCGVk28QzFR6sRIEQbzgmWk77vTh06zwkU5KBZf8sA5y4L8czqcwPE1-fCMGC-X5VQ6kfTMV" />
+                    <div class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-sidebar-bg rounded-full">
+                    </div>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex justify-between items-baseline">
+                        <h3 class="text-white font-semibold text-sm truncate">David Chen</h3>
+                        <span class="text-white/60 text-xs">10:42 AM</span>
+                    </div>
+                    <p class="text-white/80 text-xs truncate">The PR for the dashboard is ready...</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 px-4 py-3 hover:bg-white/10 cursor-pointer transition-colors">
+                <div
+                    class="w-12 h-12 rounded-full bg-primary/40 flex items-center justify-center text-white font-bold text-sm">
+                    TL
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex justify-between items-baseline">
+                        <h3 class="text-white font-semibold text-sm truncate">Tech Lead Sync</h3>
+                        <span class="text-white/60 text-xs">9:15 AM</span>
+                    </div>
+                    <p class="text-white/80 text-xs truncate">Alex: Meeting in 5 minutes guys.</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 px-4 py-3 hover:bg-white/10 cursor-pointer transition-colors">
+                <img class="w-12 h-12 rounded-full object-cover" data-alt="Portrait of a designer man avatar"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW6ItkwKUr4KlBQ51P-gCFRC6MxWH41ny06iQ2LtV9FoQRsSo-pKrce9CPwQrQiivOzrMecOrLybR1kH-xp40FVxZ9CrusaE6oJZq37YUIoDFgUGIrlyA0DeQWOCUXHyWkiWDT2Iag-9WcyTkL6__d64juO7NigKCiN0n8UoJoEqC-dd7-IUigCxsfMGAI7emL13gJeCGVk28QzFR6sRIEQbzgmWk77vTh06zwkU5KBZf8sA5y4L8czqcwPE1-fCMGC-X5VQ6kfTMV" />
+                <div class="flex-1 min-w-0">
+                    <div class="flex justify-between items-baseline">
+                        <h3 class="text-white font-semibold text-sm truncate">Marcus Riley</h3>
+                        <span class="text-white/60 text-xs">Yesterday</span>
+                    </div>
+                    <p class="text-white/80 text-xs truncate">Check out these new UI mocks.</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 px-4 py-3 hover:bg-white/10 cursor-pointer transition-colors">
+                <div
+                    class="w-12 h-12 rounded-full bg-orange-200/40 flex items-center justify-center text-white font-bold text-sm">
+                    G
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex justify-between items-baseline">
+                        <h3 class="text-white font-semibold text-sm truncate">General Channel</h3>
+                        <span class="text-white/60 text-xs">Mon</span>
+                    </div>
+                    <p class="text-white/80 text-xs truncate">Welcome to the Rabta community!</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 px-4 py-3 hover:bg-white/10 cursor-pointer transition-colors">
+                <img class="w-12 h-12 rounded-full object-cover" data-alt="Portrait of a software engineer man"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW6ItkwKUr4KlBQ51P-gCFRC6MxWH41ny06iQ2LtV9FoQRsSo-pKrce9CPwQrQiivOzrMecOrLybR1kH-xp40FVxZ9CrusaE6oJZq37YUIoDFgUGIrlyA0DeQWOCUXHyWkiWDT2Iag-9WcyTkL6__d64juO7NigKCiN0n8UoJoEqC-dd7-IUigCxsfMGAI7emL13gJeCGVk28QzFR6sRIEQbzgmWk77vTh06zwkU5KBZf8sA5y4L8czqcwPE1-fCMGC-X5VQ6kfTMV" />
+                <div class="flex-1 min-w-0">
+                    <div class="flex justify-between items-baseline">
+                        <h3 class="text-white font-semibold text-sm truncate">Elias K.</h3>
+                        <span class="text-white/60 text-xs">Sat</span>
+                    </div>
+                    <p class="text-white/80 text-xs truncate">The release notes look good.</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <main class="flex-1 flex flex-col bg-chat-bg">
+        <header
+            class="h-16 px-6 bg-white/40 backdrop-blur-md flex items-center justify-between border-b border-primary/10">
+            <div class="flex flex-col">
+                <h2 class="text-primary font-bold text-base">David Chen</h2>
+                <span class="text-primary/60 text-xs">Online</span>
+            </div>
+            <div class="flex items-center gap-5 text-primary/70">
+                <button class="hover:text-primary transition-colors"><span
+                        class="material-icons text-xl">call</span></button>
+                <button class="hover:text-primary transition-colors"><span
+                        class="material-icons text-xl">search</span></button>
+                <button class="hover:text-primary transition-colors"><span
+                        class="material-icons text-xl">more_vert</span></button>
+            </div>
+        </header>
+        <div class="flex-1 overflow-y-auto p-6 space-y-4">
+            <div class="flex justify-center my-4">
+                <span
+                    class="bg-primary/10 text-primary text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Today</span>
+            </div>
+            <div class="flex flex-col items-start max-w-[80%]">
+                <div class="bg-sidebar-bg rounded-xl rounded-tl-none p-3 shadow-sm">
+                    <p class="text-incoming-text text-sm leading-relaxed">
+                        Hey! I've just finished the initial draft for the Rabta redesign.
+                        Do you have a moment to review the wireframes?
+                    </p>
+                    <span class="block text-right text-[10px] text-incoming-text/60 mt-1">10:40 AM</span>
+                </div>
+            </div>
+            <div class="flex flex-col items-end w-full">
+                <div class="bg-primary text-chat-bg rounded-xl rounded-tr-none p-3 shadow-sm max-w-[80%]">
+                    <p class="text-sm leading-relaxed">
+                        That was quick! Absolutely, send them over.
+                        I'm curious about how you handled the sidebar navigation for smaller screens.
+                    </p>
+                    <div class="flex justify-end items-center gap-1 mt-1">
+                        <span class="text-[10px] text-chat-bg/70">10:41 AM</span>
+                        <span class="material-icons text-[12px] text-chat-bg/70">done_all</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col items-start max-w-[80%]">
+                <div class="bg-sidebar-bg rounded-xl rounded-tl-none p-2 shadow-sm">
+                    <div class="rounded-lg overflow-hidden mb-2">
+                        <div class="bg-white/20 p-4 flex items-center gap-3 border border-white/10">
+                            <div class="w-10 h-10 bg-white/30 rounded flex items-center justify-center">
+                                <span class="material-icons text-incoming-text">description</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-incoming-text text-sm font-medium">rabta_v1_design.pdf</span>
+                                <span class="text-incoming-text/50 text-[10px]">2.4 MB</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-incoming-text text-sm px-1 mb-1">
+                        Here is the PDF export. Let me know what you think!
+                    </p>
+                    <span class="block text-right text-[10px] text-incoming-text/60">10:42 AM</span>
+                </div>
+            </div>
+            <div class="flex flex-col items-end w-full">
+                <div class="bg-primary text-chat-bg rounded-xl rounded-tr-none p-3 shadow-sm max-w-[80%]">
+                    <p class="text-sm leading-relaxed">
+                        Downloading now... The PR for the dashboard is also ready for your final look.
+                    </p>
+                    <div class="flex justify-end items-center gap-1 mt-1">
+                        <span class="text-[10px] text-chat-bg/70">10:42 AM</span>
+                        <span class="material-icons text-[12px] text-chat-bg/70">done_all</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="p-4 bg-white/20 border-t border-primary/10">
+            <div class="max-w-4xl mx-auto flex items-end gap-4">
+                <button class="mb-2 text-primary/60 hover:text-primary transition-colors">
+                    <span class="material-icons">attach_file</span>
+                </button>
+                <div
+                    class="flex-1 bg-white rounded-xl shadow-sm border border-primary/10 flex items-center px-4 py-1.5">
+                    <textarea
+                        class="w-full bg-transparent border-none focus:ring-0 text-sm py-2 resize-none text-gray-700 placeholder-gray-400"
+                        placeholder="Write a message..." rows="1"></textarea>
+                    <button class="ml-2 text-primary/60 hover:text-primary transition-colors">
+                        <span class="material-icons">sentiment_satisfied_alt</span>
+                    </button>
+                </div>
+                <button
+                    class="bg-primary text-white w-10 h-10 rounded-xl flex items-center justify-center hover:opacity-90 transition-opacity shadow-md">
+                    <span class="material-icons text-xl">send</span>
+                </button>
+            </div>
+        </footer>
+    </main>
+
+</body>
+
+</html>
